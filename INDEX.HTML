@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGWAR | Мир Тьмы, VtM, WoD </title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* НЕ ПЕРЕПУТАЙ! ЦВЕТА! */
+        :root {
+            --bg: #000000;
+            --accent: #7c0808;
+            --text: #c4c4c4;
+            --dim: #555;
+            --gold: #84754e;
+            --border: rgba(255, 255, 255, 0.1);
+            --blood-red: #7c0808; 
+            --gold-subtle: #84754e;
+        }
+
+        /* Дисклеймер. Не забыть с утра */
+        .disclaimer-top {
+            background-color: #000;
+            border-bottom: 2px solid var(--accent);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .disclaimer-top::before, .disclaimer-top::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            background: radial-gradient(circle, rgba(114, 0, 0, 0.2) 0%, transparent 70%);
+        }
+        .disclaimer-top::before { left: -50px; }
+        .disclaimer-top::after { right: -50px; }
+
+.age-badge {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 5px 15px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    box-shadow: 0 0 15px rgba(114, 0, 0, 0.3);
+}
+
+.disclaimer-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #eee;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.disclaimer-text span {
+    color: var(--accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 10px;
+}
+        {
+            --bg: #000000;
+            --accent: #7c0808;
+            --text: #c4c4c4;
+            --dim: #555;
+            --gold: #84754e;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Lora', serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
+        }
+
+        /* Хед всему голова*/
+        header {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 5% 10%;
+            background: #000;
+        }
+
+        .header-slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            z-index: 1;
+            animation: slideshow 18s linear infinite;
+        }
+
+        .slide-1 { 
+            background-image: linear-gradient(to top, var(--bg), transparent), url('Gemini_Generated_Image_q3uqyrq3uqyrq3uq.png'); 
+            animation-delay: 0s;
+        }
+        .slide-2 { 
+            background-image: linear-gradient(to top, var(--bg), transparent), url('giga.jpg'); 
+            animation-delay: 6s;
+        }
+        .slide-3 { 
+            background-image: linear-gradient(to top, var(--bg), transparent), url('galla.jpg'); 
+            animation-delay: 12s;
+        }
+
+        @keyframes slideshow {
+            0% { opacity: 0; transform: scale(1); }
+            5% { opacity: 1; }
+            33% { opacity: 1; }
+            38% { opacity: 0; transform: scale(1.1); }
+            100% { opacity: 0; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 15vw, 8rem);
+            margin: 0;
+            line-height: 0.8;
+            font-style: italic;
+            color: #fff;
+            text-shadow: 10px 10px 20px rgba(0,0,0,0.8);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-transform: lowercase;
+            letter-spacing: 5px;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* Расположение */
+        .container {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        section { margin-bottom: 150px; position: relative; }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* интро */
+        .intro-text {
+            font-size: 1.4rem;
+            max-width: 700px;
+            border-left: 2px solid var(--accent);
+            padding-left: 30px;
+            font-style: italic;
+        }
+
+        .precepts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .precept { display: flex; align-items: baseline; gap: 20px; }
+        .precept:nth-child(2) { padding-left: 10%; }
+        .precept:nth-child(3) { padding-left: 20%; }
+
+        .p-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .p-name { font-size: 2rem; color: #fff; text-transform: none; }
+
+        /* Идущии хроники*/
+        .chronicle-card {
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .chronicle-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.2) brightness(0.6);
+            transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chronicle-card:hover img { filter: grayscale(0.4) brightness(0.9); }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Грид */
+        .systems-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .system-card {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            text-decoration: none;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .system-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(1) brightness(0.3);
+            z-index: -1;
+            transition: 0.6s ease;
+        }
+
+        .system-card:hover::before {
+            filter: grayscale(0.6) brightness(0.5);
+            transform: scale(1.05);
+        }
+
+        .sys-vtm::before { background-image: url('https://i.pinimg.com/736x/83/74/77/837477803fd737db697cbb53a355574d.jpg'); }
+        .sys-wta::before { background-image: url('https://i.pinimg.com/1200x/70/01/57/7001575edb8914780f5f60281c1da4e3.jpg'); }
+        .sys-wfrp::before { background-image: url('https://i.pinimg.com/1200x/94/71/59/9471596bf40021c6492bc90f3eddee70.jpg'); }
+        .sys-sr::before { background-image: url('https://i.pinimg.com/736x/e2/0d/ed/e20ded91b05be3ea4f5661f140d077c6.jpg'); }
+
+        .sys-label { font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; margin: 0; }
+        .sys-desc { font-size: 0.85rem; color: var(--gold); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+        /* --- BOOKING FORM (NEW DESIGN) --- */
+        .booking-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 12px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+
+        .form-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--dim);
+            padding: 12px 0;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1.1rem;
+            transition: 0.4s;
+        }
+
+        .form-group select { background: #0a0a0a; color: #fff; }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+            padding-left: 10px;
+        }
+
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: #fff;
+            padding: 20px 60px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: 0.5s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 30px rgba(114, 0, 0, 0.5);
+        }
+
+        /* Контейнер */
+.tg-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 80px 0;
+}
+
+.tg-artifact {
+    position: relative;
+    display: inline-block;
+    padding: 22px 50px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    
+    /* Борда */
+    border: 1px solid var(--accent);
+    background: rgba(10, 0, 0, 0.8);
+    
+    /* Анимация пульсации*/
+    box-shadow: 0 0 10px rgba(114, 0, 0, 0.5);
+    transition: all 0.4s ease;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); 
+}
+
+.tg-artifact:hover {
+    color: #fff;
+    background: var(--accent);
+    box-shadow: 0 0 40px var(--accent);
+    letter-spacing: 10px;   
+    transform: skewX(-5deg) scale(1.05); /* Легкий наклон при наведении */
+}
+
+/* Крест на кнопке */
+.tg-artifact::before {
+    content: '†';
+    margin-right: 15px;
+    color: var(--accent);
+    transition: 0.3s;
+}
+  
+.tg-artifact:hover::before {
+    color: #fff;
+    filter: drop-shadow(0 0 5px #fff);
+}
+
+/* Эффект мерцания по краям */
+@keyframes pulse-border {
+    0% { border-color: var(--accent); }
+    50% { border-color: var(--gold); }
+    100% { border-color: var(--accent); }
+}
+
+.tg-artifact {
+    animation: pulse-border 3s infinite;
+}
+
+        /* Футер */
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.3;
+            letter-spacing: 8px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .booking-wrapper { padding: 30px; }
+            h1 { font-size: 4rem; }
+            .precept:nth-child(n) { padding-left: 0; }
+        }
+        .close-disclaimer {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 25px;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 5;
+}
+
+.close-disclaimer:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* Анимация исчезновения */
+.disclaimer-hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    transition: all 0.5s ease-in-out;
+}
+    </style>
+</head>
+<body>
+<div class="disclaimer-top" id="ageDisclaimer">
+    <div class="age-badge">18+</div>
+    <div class="disclaimer-text">
+        «Я стараюсь заботиться о своих игроках, однако, я вожу взрослые игры для взрослых людей. 
+        Это не эйджи истории про мрачных бомжей убийц, но работа с серьёзными и сложными темами. 
+        <span>Ваши пределы прошу указывать до игры.</span>»
+    </div>
+    <button class="close-disclaimer" onclick="closeDisclaimer()">Принимаю условия</button>
+</div>
+</div>
+
+<header>
+    <div class="header-slide slide-1"></div>
+    <div class="header-slide slide-2"></div>
+    <div class="header-slide slide-3"></div>
+    
+    <div class="header-content">
+       <h1>INGWAR</h1> 
+        <span class="subtitle">Добро пожаловать в мой мир...</span>
+    </div>
+</header>
+
+<div class="container">
+    <section>
+        <div class="intro-text">
+            <p>С начала 2023 года я создаю миры. Это не просто сцены, идущие друг за другом. Каждая игра — это высказывание. Тонкая игра смыслов в полумраке. И чисто этих высказываний уже перевалило за две сотни.</p>
+            <p>Я не беру плату деньгами. Мне знакома другая, более ценная валюта. Ваши эмоции. Другой платы за игру никогда нее возьму.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="precepts">
+            <div class="precept">
+                <span class="p-num">1</span>
+                <span class="p-name"> Кайфуй. Удовольствие и кайф от игры самое важное. И не только для вас, как игроков, но и для меня как мастера.</span>
+                </div>
+            <div class="precept">
+                <span class="p-num">2</span>
+                <span class="p-name">Ответственность.  Проявляйте уважение ко мне и своим соигрокам. Старайтесь слушать, не перебивать, вовремя заткнуться и уважать договорённости и тогда ты встретиишь понимание, со стороны  других</span>
+            </div>
+            <div class="precept">
+                <span class="p-num">3</span>
+                <span class="p-name">Дружелюбие. Мы горстка людей со странным хобби, что просто хочет поиграть и получить удовольствие от игры. Ты не обязан  всех любить и со всеми дружить, но пока мы все в единой лодке, попробуй стать частью нашего маленького, уютного комьюнити.</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Сейчас в тени</h2>
+        <div class="chronicle-card">
+            <img src="GAW.gif" alt="Garu Around World" loading="lazy">
+            <h3 class="card-title">Garu Around World</h3>
+            <p>Путешествие вокруг умирающей земли. В поисках ускользающей надежды.</p>
+        </div>
+        <div class="chronicle-card">
+            <img src="XZtl.gif" alt="Mist of Takao" loading="lazy">
+            <h3 class="card-title">Mist of Takao</h3>
+            <p>Япония 90-х. Туман, вайб старого аниме и тьма, скрытая за неоном.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Мастерские системы</h2>
+        <div class="systems-container">
+            <div class="system-card sys-vtm">
+                <h3 class="sys-label">VtM</h3>
+                <span class="sys-desc">Vampire: The Masquerade / Личный хоррор</span>
+            </div>
+            <div class="system-card sys-wta">
+                <h3 class="sys-label">WtA</h3>
+                <span class="sys-desc">Werewolf: The Apocalypse / Дикая ярость</span>
+            </div>
+            <div class="system-card sys-wfrp">
+                <h3 class="sys-label">WFRP 4e</h3>
+                <span class="sys-desc">Warhammer Fantasy / Гротеск Старого Света</span>
+            </div>
+            <div class="system-card sys-sr">
+                <h3 class="sys-label">Shadowrun</h3>
+                <span class="sys-desc">Cyberpunk & Magic / Техногенный нуар</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="application">
+        <h2>Заявка на игру</h2>
+        <div class="booking-wrapper">
+            <form id="orderForm" class="form-grid">
+                <div class="form-group">
+                    <label>Имя или Никнейм</label>
+                    <input type="text" id="userName" placeholder="Как вас зовут в этом мире?">
+                </div>
+                <div class="form-group">
+                    <label>Выбор Хроники</label>
+                    <select id="userChronicle">
+                        <option value="vtm">Vampire: The Masquerade</option>
+                        <option value="wta">Werewolf: The Apocalypse</option>
+                        <option value="takao">Mist of Takao (Current)</option>
+                        <option value="garu">Garu Around World (Current)</option>
+                        <option value="other">Другое (WFRP / Shadowrun)</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label>Ваш путь (Игровой опыт)</label>
+                    <textarea id="userExperience" rows="2" placeholder="Опишите ваши прошлые воплощения..."></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label>Пределы и табу</label>
+                    <textarea id="userLimits" rows="2" placeholder="Что мастеру не стоит тревожить?"></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="button" class="submit-btn">Оставить оттиск</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+        <div class="tg-wrapper">
+            <a href="https://t.me/Ingwarthepirat" class="tg-artifact" target="_blank">
+                Связаться с мастером
+            </a>
+        </div>
+
+    </div> 
+    <footer>
+    INGWAR &copy; 2026 / Никакие права не защищены, даже водительские
+     </footer>
+
+<script>
+    // --- ФУНКЦИИ ДИСКЛЕЙМЕРА (должны быть снаружи обработчиков) ---
+    function closeDisclaimer() {
+        const disclaimer = document.getElementById('ageDisclaimer');
+        disclaimer.classList.add('disclaimer-hidden');
+        localStorage.setItem('disclaimerAccepted', 'true'); // запоминаем выбор
+    }
+       
+    // Проверка при загрузке страницы
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('disclaimerAccepted') === 'true') {
+            document.getElementById('ageDisclaimer').style.display = 'none';
+        }
+    });
+
+
+    // --- ОБРАБОТКА ФОРМЫ ---
+    document.querySelector('.submit-btn').addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('userName').value,
+            chronicle: document.getElementById('userChronicle').value,
+            experience: document.getElementById('userExperience').value,
+            limits: document.getElementById('userLimits').value
+        };
+
+        if (!formData.name) {
+            alert("Назовите себя, прежде чем стучать в дверь.");
+            return;
+        }
+
+        try {
+            const response = await fetch('http://ВАШ_IP_ИЛИ_ДОМЕН:8080/webhook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert("Фамулус направлен. Ждите приёма.");
+                document.getElementById('orderForm').reset();
+            } else {
+                alert("Ошибка. Напишите в Telegram напрямую.");
+            }
+        } catch (error) {
+            alert("Сервер недоступен. Свяжитесь в Telegram.");
+        }
+    });
+</script>
+</body>
+</html>
+
